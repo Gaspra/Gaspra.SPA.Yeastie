@@ -25,6 +25,13 @@ temp/*
 .vscode/*.local.*
 .idea/*.local.*
 
+# Dependencies and build outputs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
 # Local agent and assistant state (shared configuration remains trackable)
 .codex/*.local.*
 .codex/session*

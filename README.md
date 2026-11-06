@@ -1,67 +1,39 @@
+# Yeastie
 
-# Agentic Project Template
+A minimalist single-page website for **yeastie**, an artisan sourdough bakery.
 
-This is a template repository for building agentic projects. It is intended to be used as a starting point for new projects and can be customized to fit the specific needs of the project.
+This website serves as a clean, temporary holding page and showcase, designed to be hosted as a Single Page Application (SPA) on GitHub Pages.
 
-## Usage
-
-There are pre-defined roles in the agents file to help setup an orchestrated development team with a product owner, project manager and developers. A human-orchestrator is needed to kickoff work and aid coordination depending on the defined project.
-
-```mermaid
-flowchart LR
-    po["Product Owner\nAgent"]
-    pm["Project Manager\nAgent"]
-    dev1["Developer\nAgent"]
-    dev2["Developer\nAgent"]
-    dev3["Developer\nAgent"]
-    dev4["Developer\nAgent"]
-
-    po --> |"Creates a product scope to be split into work tasks."| pm
-    pm --> |"After a phase of work, check with PO to confirm aligned progress."| po
-    pm --> dev1
-    pm --> dev2
-    pm --> dev3
-    pm --> dev4
-```
-
-## Template structure
-
-Below is the directory structure provided out-of-the-box by this template:
+## Project Structure
 
 ```text
 .
-├── .agents/
-│   ├── context/
-│   │   └── context-library.md
-│   ├── development/
-│   │   └── development-agents.md
-│   ├── product/
-│   │   └── .gitkeep
-│   └── skills/
-│       ├── context-sorter/
-│       │   └── SKILL.md
-│       └── development-tracker/
-│           └── SKILL.md
+├── .agents/                      # Multi-agent coordination and tracking
+├── .github/workflows/pages.yml   # GitHub Pages deployment workflow
 ├── src/
-│   └── .gitkeep
-├── temp/
-│   └── README.md
-├── AGENTS.md
-└── README.md
+│   └── spa/
+│       ├── index.html            # Main single-page application
+│       ├── sourdoughloaf.png     # Sourdough loaf image
+│       └── index.test.js         # Automated test suite
+├── AGENTS.md                     # Agent development rules and guidelines
+└── README.md                     # Project overview and documentation
 ```
 
-### Key Components
+## Features
 
-| Component | Path | Description |
-| :--- | :--- | :--- |
-| **Agent Roles & Guidelines** | [AGENTS.md](AGENTS.md) | Defines prompt instructions, project context lookups, and specific constraints for Developer, Project Manager, and Product Owner roles. |
-| **Agent Task Registry** | [.agents/development/development-agents.md](.agents/development/development-agents.md) | Maps agent codenames and conversation IDs to durability notes and recent work logs. |
-| **Context Library Catalog** | [.agents/context/context-library.md](.agents/context/context-library.md) | Indexes reusable context documents so agents can quickly identify and consume relevant workspace information. |
-| **Product Scoping Folder** | [.agents/product/](.agents/product/) | Contains scoping documents and product requirements created by the Product Owner. |
-| **Context Sorter Skill** | [.agents/skills/context-sorter/SKILL.md](.agents/skills/context-sorter/SKILL.md) | Automates the workflow of importing, analysing, generating meta commentary, and contextualising files into the context library. |
-| **Development Tracker Skill** | [.agents/skills/development-tracker/SKILL.md](.agents/skills/development-tracker/SKILL.md) | Automates registering new agent identities, tracking tasks, updating the roster, and logging activities in journals. |
-| **Context Staging Folder** | [temp/](temp/) | Pre-configured staging area for raw files awaiting analysis, contextualisation, meta commentary generation, relocation to `.agents/context/`, and cleanup. |
+- **Minimalist Aesthetic**: Clean typography with a blank background focusing on the craft of sourdough baking.
+- **Responsive Presentation**: Centered sourdough loaf image styled to take up at most 60% of the viewport width.
+- **GitHub Pages Ready**: Self-contained static SPA with zero external dependencies, ready for deployment via GitHub Actions or Pages static hosting.
+- **Automated Verification**: Node.js test suite checking HTML structure, metadata, image linkage, responsive styling, and accessibility.
 
-> [!IMPORTANT]
-> **Template Setup Instruction for Agents:**
-> Overwrite this `README.md` file with project-specific documentation as your first action. Do not delete the file itself; clear its contents and replace them with details relevant to the project being built.
+## Running Tests
+
+Run the test suite using Node.js built-in test runner:
+
+```bash
+node --test src/spa/index.test.js
+```
+
+## Deployment
+
+This site can be deployed automatically to GitHub Pages via GitHub Actions workflow (`.github/workflows/pages.yml`), which publishes the `src/spa` directory directly to GitHub Pages.

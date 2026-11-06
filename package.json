@@ -1,0 +1,10 @@
+{
+  "name": "yeastie-spa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimalist single-page website for Yeastie bakery",
+  "scripts": {
+    "test": "node --test src/spa/index.test.js"
+  }
+}
+
